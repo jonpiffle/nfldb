@@ -1,7 +1,6 @@
 import re
-
 import pytest
-
+from nfldb.types import *  # o_0
 
 def join(ent_from, *ent_tos):
     return ent_from._sql_join_all(ent_tos)
@@ -19,8 +18,6 @@ def joins_to(ent_from, *ent_tos):
 
 
 def test_joins():
-    from nfldb.types import *  # o_0
-
     assert join(Game) == ''
     assert join(Drive) == ''
     assert join(Play) == ''
@@ -51,8 +48,6 @@ def test_joins():
 
 
 def test_player_joins():
-    from nfldb.types import *  # o_0
-
     # The `player` table can ONLY join with `play_player`. Everything else
     # should fail.
     # N.B. This is a special case handled in nfldb.Query. (If it arises, the
